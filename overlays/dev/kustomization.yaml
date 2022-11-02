@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ns-sourcegraph
+resources:
+  - git::git@github.com:sourcegraph/deploy-sourcegraph/base?ref=v4.2.0
+components:
+  - git::git@github.com:sourcegraph/kustomize/components/low-resources
+  - git::git@github.com:sourcegraph/kustomize/components/delete-pvc
+  - git::git@github.com:sourcegraph/kustomize/components/delete-cadvisor

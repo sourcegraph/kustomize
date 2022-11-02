@@ -1,0 +1,1 @@
+This overlay uses the minikube component to delete resource declarations and storage classnames to enable runnning Sourcegraph on minikube.

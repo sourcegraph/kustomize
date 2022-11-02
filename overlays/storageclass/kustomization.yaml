@@ -4,5 +4,5 @@ namespace: ns-sourcegraph
 resources:
   - git::git@github.com:sourcegraph/deploy-sourcegraph/base?ref=v4.2.0
 components:
-  - git::git@github.com:sourcegraph/kustomize/components/minikube
-  # - ../../components/minikube
+  - git::git@github.com:sourcegraph/kustomize/components/storageclass
+  # - ../../components/storageclass
