@@ -54,4 +54,3 @@ patchesJson6902:
       name: codeinsights-db
       version: v1
     path: replace-storageclass-name-pvc.yaml    
-

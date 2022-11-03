@@ -1,4 +1,4 @@
 - op: replace
   path: /spec/storageClassName
-  # update your storageclass value below
+  # update your storageclass value in overlays/storageclass/.storageclass.env
   value: $(DEPLOY_SOURCEGRAPH_STORAGECLASS_NAME)
