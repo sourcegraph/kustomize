@@ -5,5 +5,4 @@ resources:
   # Replace the version number to upgrade / downgrade
   - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=v4.2.0
 components:
-  - https://github.com/sourcegraph/kustomize/components/minikube
-  # - ../../components/minikube
+  - https://github.com/sourcegraph/kustomize/components/storageclass-gcp

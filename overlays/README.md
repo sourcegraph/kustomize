@@ -17,10 +17,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: ns-sourcegraph-example
 resources:
-  - git::git@github.com:sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
 components:
-  - git::git@github.com:sourcegraph/kustomize/components/non-privileged
-  - git::git@github.com:sourcegraph/kustomize/components/non-privileged-create-cluster
+  - https://github.com/sourcegraph/kustomize/components/non-privileged
+  - https://github.com/sourcegraph/kustomize/components/non-privileged-create-cluster
 ```
 
 ## Build overlay

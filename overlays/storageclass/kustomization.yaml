@@ -3,9 +3,10 @@ kind: Kustomization
 # update namespace value if needed
 namespace: ns-sourcegraph
 resources:
-  - git::git@github.com:sourcegraph/deploy-sourcegraph/base?ref=v4.2.0
+  # Replace the version number to upgrade / downgrade
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=v4.2.0
 components:
-  - git::git@github.com:sourcegraph/kustomize/components/storageclass
+  - https://github.com/sourcegraph/kustomize/components/storageclass
   # - ../../components/storageclass
 configMapGenerator:
 - name: environment-variables
