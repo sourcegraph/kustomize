@@ -1,10 +1,12 @@
-# Sourcegraph Kustomize
+# [WIP] Sourcegraph Kustomize
 
-This repository contains a set of Kustomize components and overlays that are designed to work with the [Sourcegraph Kubernetes deployment repository](https://sourcegraph.com/github.com/sourcegraph/deploy-sourcegraph), and to replace the [older version of the overlays](https://sourcegraph.com/github.com/sourcegraph/deploy-sourcegraph/-/tree/overlays). 
+# WIP - DO NOT USE
+
+This repository contains a set of Kustomize components and overlays that are designed to work with the [Sourcegraph Kubernetes deployment repository](https://sourcegraph.com/github.com/sourcegraph/deploy-sourcegraph), and to replace the [older version of the overlays](https://sourcegraph.com/github.com/sourcegraph/deploy-sourcegraph/-/tree/overlays).
 
 The new set of Kustomize components and overlays provide more flexibility in creating an overlay that suits your deployments and eliminates the need to clone the deployment repository.
 
-IMPORTANT: Only works with Sourcegraph v4.2.0+
+IMPORTANT: Only works with Sourcegraph kustomize.example+
 
 ## Kustomize
 
@@ -22,7 +24,7 @@ A kustomize component is essentially a smaller unit of a normal kustomization, a
 
 ## How to use
 
-Making changes directly in the existing components are not recommended. 
+Making changes directly in the existing components are not recommended.
 
 All changes should be made within a kustomization.yaml file inside the overlays folder.
 
@@ -33,8 +35,8 @@ For example, if you would like to use the storageclass overlay, you will need to
 Run the following command in the root of this repository. Replace `$OVERLAY` with the name of the overlay.
 
 ```bash
-# example: kubectl apply -k overlays/minikube > .overlay_output.yaml
-kustomize build overlays/$OVERLAY > .overlay_output.yaml
+# example: kubectl apply -k overlays/minikube > overlays/.preview/output.yaml
+kustomize build overlays/$OVERLAY > overlays/.preview/output.yaml
 ```
 
 ### Apply overlay

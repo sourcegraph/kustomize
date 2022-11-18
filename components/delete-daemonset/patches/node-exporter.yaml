@@ -3,5 +3,5 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   labels:
-    app.kubernetes.io/component: cadvisor
-  name: cadvisor
+    app: node-exporter
+  name: node-exporter

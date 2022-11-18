@@ -3,5 +3,5 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   labels:
-    app.kubernetes.io/component: cadvisor
-  name: cadvisor
+    app.kubernetes.io/component: otel-collector
+  name: otel-agent

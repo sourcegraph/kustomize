@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+patchesStrategicMerge:
+- patches/otel-agent.yaml
+- patches/node-exporter.yaml
+# NOTE: Uncomment the line below to remove cadvisor daemonset.
+# - patches/cadvisor.yaml
+# IMPORTANT: Leave it commented if you are also using the delete-cadvisor component
+# or you will see an error about not being able to find the cadvisor to delete
+# It is because the daemonset has already been deleted by the delete-cadvisor component
