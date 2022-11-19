@@ -3,7 +3,7 @@ kind: Component
 configMapGenerator:
 - name: environment-variables
   # A placeholder file
-  env: patches/.storageclass.env
+  env: patches/.sourcegraph_config.env
 patchesJson6902:
   - target:
       kind: StatefulSet

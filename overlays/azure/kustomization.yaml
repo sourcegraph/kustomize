@@ -5,4 +5,9 @@ resources:
   # Replace the version number to upgrade / downgrade
   - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
 components:
-  - https://github.com/sourcegraph/kustomize/components/storageclass-azure
+  - https://github.com/sourcegraph/kustomize/components/storageclass-azure # Create a storageClass for azure
+  - https://github.com/sourcegraph/kustomize/components/storageclass-name # Update the storageclass name using the new storageclass
+configMapGenerator:
+- name: environment-variables
+  behavior: replace
+  env: .sourcegraph_config.env

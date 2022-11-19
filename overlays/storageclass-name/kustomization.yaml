@@ -11,5 +11,5 @@ components:
 configMapGenerator:
 - name: environment-variables
   behavior: replace
-  # update storage name inside the .storageclass.env file
+  # update storage name inside the .sourcegraph_config.env file
   env: .sourcegraph_config.env
