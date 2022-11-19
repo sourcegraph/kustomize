@@ -10,6 +10,8 @@ IMPORTANT: Only works with Sourcegraph v4.2.1+
 
 ## Kustomize
 
+[Kustomize](https://kustomize.io/) is built into `kubectl` in version >= 1.14.
+
 Install Kustomize: https://kubectl.docs.kubernetes.io/installation/kustomize/
 
 ### Overlays

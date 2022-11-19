@@ -7,9 +7,8 @@ resources:
   - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
 components:
   - https://github.com/sourcegraph/kustomize/components/storageclass-name
-  # - ../../components/storageclass-name
 configMapGenerator:
-- name: environment-variables
-  behavior: replace
-  # update storage name inside the .sourcegraph_config.env file
-  env: .sourcegraph_config.env
+  - name: environment-variables
+    behavior: replace
+    # update the value inside the .sourcegraph_config.env file with your StorageClassName
+    env: .sourcegraph_config.env

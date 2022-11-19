@@ -5,10 +5,8 @@ resources:
   # Replace the version number to upgrade / downgrade
   - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
 components:
-  # Create a storageClass for gcp
-  - https://github.com/sourcegraph/kustomize/components/storageclass-gcp
-  # Update the storageclass name using the new storageclass
-  - https://github.com/sourcegraph/kustomize/components/storageclass-name
+  - https://github.com/sourcegraph/kustomize/components/storageclass-gcp # Create a storageClass for gcp
+  - https://github.com/sourcegraph/kustomize/components/storageclass-name # Update the storageclass name using the new storageclass
 configMapGenerator:
 - name: environment-variables
   behavior: replace

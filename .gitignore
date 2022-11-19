@@ -1,2 +1,4 @@
+.examples/.preview
+.output.yaml
 .env
 overlays/.preview/output.yaml

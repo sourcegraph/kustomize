@@ -1,4 +1,4 @@
-# storageclass
+# StorageClassName Overlay
 
 This is a convenient kustomization that adds the specified storageclass to all pvc's and statefulsets.
 

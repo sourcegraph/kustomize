@@ -9,7 +9,11 @@ patchesStrategicMerge:
       app: sourcegraph-frontend
     name: sourcegraph-frontend
   spec:
+    ports:
+    - name: http
+      port: 30080
+      nodePort: 30080
     selector:
       app: sourcegraph-frontend
-    $patch: replace
+    $patch: merge
     type: NodePort

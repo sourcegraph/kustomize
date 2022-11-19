@@ -1,0 +1,104 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# This adds the namespace value specified here to all the manifests for our deployment
+namespace: sourcegraph-staging-overlay
+# Define the source of the base manifests here
+resources:
+  # Replace the version number to upgrade / downgrade
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
+
+# A list of components that are used to build the staging overlay
+components:
+  - https://github.com/sourcegraph/kustomize/components/serviceType/NodePort
+  - https://github.com/sourcegraph/kustomize/components/delete-cadvisor
+  - https://github.com/sourcegraph/kustomize/components/non-privileged
+  - https://github.com/sourcegraph/kustomize/components/non-privileged-create-cluster
+  - https://github.com/sourcegraph/kustomize/components/delete-daemonset
+  - https://github.com/sourcegraph/kustomize/components/delete-rolebinding
+  - https://github.com/sourcegraph/kustomize/components/storageclass-name
+
+# This adds the StorageClassName value that we defined in the .sourcegraph_config.env file
+# to our deployment
+configMapGenerator:
+  - name: environment-variables
+    env: .sourcegraph_config.env
+
+# This will update the registry of the default image name
+# from `index.docker.io`` to `my.staging.registry``
+# It also updates the image tag to `pre.release`
+images:
+  - name: index.docker.io/sourcegraph/alpine-3.14
+    newName: my.staging.registry/sourcegraph/alpine-3.14
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/cadvisor
+    newName: my.staging.registry/sourcegraph/cadvisor
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/codeinsights-db
+    newName: my.staging.registry/sourcegraph/codeinsights-db
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/codeintel-db
+    newName: my.staging.registry/sourcegraph/codeintel-db
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/frontend
+    newName: my.staging.registry/sourcegraph/frontend
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/github-proxy
+    newName: my.staging.registry/sourcegraph/github-proxy
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/gitserver
+    newName: my.staging.registry/sourcegraph/gitserver
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/grafana
+    newName: my.staging.registry/sourcegraph/grafana
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/indexed-searcher
+    newName: my.staging.registry/sourcegraph/indexed-searcher
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/migrator
+    newName: my.staging.registry/sourcegraph/migrator
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/minio
+    newName: my.staging.registry/sourcegraph/minio
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/opentelemetry-collector
+    newName: my.staging.registry/sourcegraph/opentelemetry-collector
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/postgres-12-alpine
+    newName: my.staging.registry/sourcegraph/postgres-12-alpine
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/postgres_exporter
+    newName: my.staging.registry/sourcegraph/postgres_exporter
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/precise-code-intel-worker
+    newName: my.staging.registry/sourcegraph/precise-code-intel-worker
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/prometheus
+    newName: my.staging.registry/sourcegraph/prometheus
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/redis-cache
+    newName: my.staging.registry/sourcegraph/redis-cache
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/redis-store
+    newName: my.staging.registry/sourcegraph/redis-store
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/redis_exporter
+    newName: my.staging.registry/sourcegraph/redis_exporter
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/repo-updater
+    newName: my.staging.registry/sourcegraph/repo-updater
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/search-indexer
+    newName: my.staging.registry/sourcegraph/search-indexer
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/searcher
+    newName: my.staging.registry/sourcegraph/searcher
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/symbols
+    newName: my.staging.registry/sourcegraph/symbols
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/syntax-highlighter
+    newName: my.staging.registry/sourcegraph/syntax-highlighter
+    newTag: pre.release
+  - name: index.docker.io/sourcegraph/worker
+    newName: my.staging.registry/sourcegraph/worker
+    newTag: pre.release
