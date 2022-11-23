@@ -6,7 +6,7 @@ This repository contains a set of Kustomize components and overlays that are des
 
 The new set of Kustomize components and overlays provide more flexibility in creating an overlay that suits your deployments and eliminates the need to clone the deployment repository.
 
-IMPORTANT: Only works with Sourcegraph v4.2.1+
+IMPORTANT: Only works with Sourcegraph version TBA
 
 ## Kustomize
 
