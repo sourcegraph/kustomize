@@ -5,10 +5,8 @@ namespace: ns-sourcegraph
 resources:
   # Replace the version number to upgrade / downgrade
   - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
+  # ACTION REQUIRED: Update the new security context value in this file
+  - newSecurityContext.ConfigMap.yaml
+
 components:
-  - https://github.com/sourcegraph/kustomize/components/storageclass-name
-configMapGenerator:
-  - name: environment-variables
-    behavior: replace
-    # update the value inside the .sourcegraph_config.env file with your StorageClassName
-    env: .sourcegraph_config.env
+  - ../../../components/securityContext-new

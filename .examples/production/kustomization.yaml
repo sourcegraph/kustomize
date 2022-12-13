@@ -10,12 +10,12 @@ resources:
 
 # A list of components that are used to build the staging overlay
 components:
+  - https://github.com/sourcegraph/kustomize/components/storageclass-name
   - https://github.com/sourcegraph/kustomize/components/delete-cadvisor
   - https://github.com/sourcegraph/kustomize/components/non-privileged
   - https://github.com/sourcegraph/kustomize/components/non-privileged-create-cluster
   - https://github.com/sourcegraph/kustomize/components/delete-daemonset
   - https://github.com/sourcegraph/kustomize/components/delete-rolebinding
-  - https://github.com/sourcegraph/kustomize/components/storageclass-name
   - https://github.com/sourcegraph/kustomize/components/delete-default-ingress
   - https://github.com/sourcegraph/kustomize/components/serviceType/LoadBalancer
 
@@ -23,6 +23,8 @@ components:
 # to our deployment
 configMapGenerator:
   - name: environment-variables
+    behavior: replace
+    # update the value inside the .sourcegraph_config.env file with your StorageClassName
     env: .sourcegraph_config.env
 
 # This will update the registry of the default image name

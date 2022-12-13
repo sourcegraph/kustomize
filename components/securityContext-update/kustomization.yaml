@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+patchesJson6902:
+  - target:
+      kind: DaemonSet
+      name: node-exporter|cadvisor
+      group: apps
+      version: v1
+    path: patches/update.container.securityContext.yaml
+  - target:
+      kind: DaemonSet
+      name: node-exporter
+      group: apps
+      version: v1
+    path: patches/update.spec.securityContext.yaml
+
+  - target:
+      kind: StatefulSet|Deployment
+      name: .*
+      group: apps
+      version: v1
+    path: patches/update.spec.securityContext.yaml
+
+  # initContainers for databases only
+  - target:
+      kind: Deployment
+      name: codeinsights-db|pgsql|codeintel-db
+      group: apps
+      version: v1
+    path: patches/update.init.securityContext.yaml

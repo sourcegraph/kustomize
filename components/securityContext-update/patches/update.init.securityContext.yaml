@@ -1,0 +1,5 @@
+- op: replace
+  path: /spec/template/spec/initContainers/0/securityContext
+  value:
+    runAsUser: 10001
+    runAsGroup: 10001

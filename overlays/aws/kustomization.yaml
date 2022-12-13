@@ -3,11 +3,11 @@ kind: Kustomization
 namespace: ns-sourcegraph
 resources:
   # Replace the version number to upgrade / downgrade
-  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
 components:
   - https://github.com/sourcegraph/kustomize/components/storageclass-aws # Create a storageClass for aws
   - https://github.com/sourcegraph/kustomize/components/storageclass-name # Update the storageclass name using the new storageclass
 configMapGenerator:
-- name: environment-variables
-  behavior: replace
-  env: .sourcegraph_config.env
+  - name: environment-variables
+    behavior: replace
+    env: .sourcegraph_config.env

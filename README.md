@@ -93,7 +93,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: ns-sourcegraph-example
 resources:
-  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
 components:
   - https://github.com/sourcegraph/kustomize/components/delete-cadvisor
   - https://github.com/sourcegraph/kustomize/components/non-privileged
@@ -102,7 +102,7 @@ components:
 
 This example overlay that has the following features:
 
-- use the manifests defined in the branch called `kustomize.example` located inside the `github.com/sourcegraph/deploy-sourcegraph` repository, and
+- use the manifests defined in the branch called `bee/kustomize` located inside the `github.com/sourcegraph/deploy-sourcegraph` repository, and
 - apply the `delete-cadvisor` component
 - apply the `non-privileged` component
 - apply the `non-privileged-create-cluster` component
@@ -115,7 +115,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: ns-sourcegraph-example
 resources:
-  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
 components:
   - https://github.com/sourcegraph/kustomize/components/delete-cadvisor
   - https://github.com/sourcegraph/kustomize/components/non-privileged

@@ -16,5 +16,5 @@ This is an example of how you can mix and match different components to build an
 To see the output files from this overlay, run the following command from the root of this repository:
 
 ```bash
-kustomize build . -o .examples/.preview/
+kustomize build . -o .examples/.preview/production
 ```

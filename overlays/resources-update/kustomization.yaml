@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: ns-sourcegraph
 resources:
   # Replace the version number to upgrade / downgrade
-  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
 patchesStrategicMerge:
   # Update the resources listed in the ./resources.yaml
   - resources.yaml

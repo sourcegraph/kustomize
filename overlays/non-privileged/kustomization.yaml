@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: np-sourcegraph
 resources:
   # Replace the version number to upgrade / downgrade
-  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=kustomize.example
+  - https://github.com/sourcegraph/deploy-sourcegraph/base?ref=bee/kustomize
 components:
   - https://github.com/sourcegraph/kustomize/components/non-privileged
   - https://github.com/sourcegraph/kustomize/components/non-privileged-create-cluster
